@@ -26,11 +26,11 @@ console.log(eat);
 
 function forEach(list, callback){
     for (var n = 0; n < list.length; n++){
-     callback.call(list[n],n);
+     callback.call(list[n],n, list[n+ 1]);
     }
 }
 var numbers = [5,3,2,6];
-forEach(numbers, function(index){
-numbers[index]= this*2;});
+forEach(numbers, function(index, index2){
+    numbers[index]= this + index2;});
 console.log(numbers);
 
