@@ -23,3 +23,14 @@ var sleep = function () {
 
 sleep;
 console.log(eat);
+
+function forEach(list, callback){
+    for (var n = 0; n < list.length; n++){
+     callback.call(list[n],n);
+    }
+}
+var numbers = [5,3,2,6];
+forEach(numbers, function(index){
+numbers[index]= this*2;});
+console.log(numbers);
+
