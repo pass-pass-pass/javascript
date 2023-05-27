@@ -46,3 +46,27 @@ set(numbers, function(index, index3) {
     numbers[index] = index + index3;
     }    );
 console.log(numbers)
+
+
+function Llama() {
+    this.spitted = false;
+    this.spit = function() { this.spitted = true; }
+}
+var s = new Llama;
+
+console.log(s.spitted);
+s.spit();
+console.log(s.spitted);
+
+
+function constructor() {
+    this.a = 3;
+    this.b = function() {
+        this.a = 4;
+    }
+}
+
+var c = new constructor();
+console.log(c.a);
+c.b();
+console.log(c.a);
