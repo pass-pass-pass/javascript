@@ -34,3 +34,15 @@ forEach(numbers, function(index, index2){
     numbers[index]= this + index2;});
 console.log(numbers);
 
+
+
+
+function set(num, callback) {
+    for (var i = 0; i < num.length; i++) {
+        callback.call(num[i], i, i+ 1);
+    }
+}
+set(numbers, function(index, index3) {
+    numbers[index] = index + index3;
+    }    );
+console.log(numbers)
