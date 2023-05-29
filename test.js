@@ -70,3 +70,16 @@ var c = new constructor();
 console.log(c.a);
 c.b();
 console.log(c.a);
+
+function outerFunction() {
+    var x = 1;
+    function innerFunction() {
+
+    }
+    if(x==1) {var y=2;}
+    console.log(y);
+
+}
+
+
+outerFunction();
