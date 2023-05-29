@@ -19,14 +19,6 @@
 </head>
 
 <body>
-    <script type = 'text/javascript'>
-        var s = funciton () {
-            
-        }
-        import react from {reacct};
-        var body = document.body;
-        var div = body.children[0];
-    </script>
     <div id ='newbe' >
         just a test out
         
@@ -40,6 +32,22 @@
             alert("why you distract!");
             console.log('why you distract!', event.target);
         }
+
+        function animateIt(elementId, speed) {
+            var elem = document.getElementById(elementId);
+            var tick = 0;
+            var timer = setInterval(function() {
+            if (tick < 100) {
+              elem.style.left = tick * speed + "px";
+              tick++;
+            } else {
+              clearInterval(timer);
+            }
+            }, 30);
+        }
+        animateIt('newbe',5)
+
+
     </script>
 </body>
 </html>
