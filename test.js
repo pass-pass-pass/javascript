@@ -71,15 +71,20 @@ console.log(c.a);
 c.b();
 console.log(c.a);
 
+var outerValue = 'llama';
+let later;
 function outerFunction() {
-    var x = 1;
+    var innerValue = 'alpaca';
     function innerFunction() {
-
+        console.log(outerValue);
+        console.log(innerValue);
     }
-    if(x==1) {var y=2;}
-    console.log(y);
-
+    later = innerFunction;
+    console.log(ma);
 }
 
 
+var ma = "safasdfljasdklfjakwlekflkajwf";
+
 outerFunction();
+later();
