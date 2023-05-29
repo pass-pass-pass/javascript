@@ -89,3 +89,13 @@ if (a.spitted) {
     console.log("true");
 }
 // console.log(a.spitted);
+
+
+
+function curriedAdd(x){
+    return function(y){
+        console.log(x+y);
+        return x+y;
+    };
+};
+curriedAdd(4)(4);
