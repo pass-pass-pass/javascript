@@ -59,32 +59,33 @@ s.spit();
 console.log(s.spitted);
 
 
-function constructor() {
-    this.a = 3;
-    this.b = function() {
-        this.a = 4;
+
+var add = (function () {
+    var counter = 0;
+    console.log(counter);
+    return function () {return
+    counter += 1;
+    console.log(counter);
     }
+}) ();
+
+add();
+
+
+function Llama() {
+    var spitted = false;
+    this.spit = function() { spitted =
+    true; }
+    this.hasSpitted = function() { return
+    spitted; }
 }
 
-var c = new constructor();
-console.log(c.a);
-c.b();
-console.log(c.a);
-
-var outerValue = 'llama';
-let later;
-function outerFunction() {
-    var innerValue = 'alpaca';
-    function innerFunction() {
-        console.log(outerValue);
-        console.log(innerValue);
-    }
-    later = innerFunction;
-    console.log(ma);
+var a = new Llama;
+a.spit();
+// a.hasSpitted();
+console.log(a.spitted);
+// console.log(a.hasSpitted );
+if (a.spitted) {
+    console.log("true");
 }
-
-
-var ma = "safasdfljasdklfjakwlekflkajwf";
-
-outerFunction();
-later();
+// console.log(a.spitted);
