@@ -56,12 +56,17 @@
         function animateIt(elementId, speed) {
             var elem = document.getElementById(elementId);
             var tick = 0;
+            var tick2 = 0;
             var timer = setInterval(function() {
             if (tick < 100) {
               elem.style.left = tick * speed + "px";
               tick++;
             } else {
-              clearInterval(timer);
+                elem.style.left =  (tick * speed - tick2 *  speed) + "px";
+                tick2++;
+                if (tick == tick2) {
+                    tick = tick2 = 0;
+                }
             }
             }, 30);
         }
