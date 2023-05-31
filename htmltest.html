@@ -5,30 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <script type = 'text/javascript'>
-        import "./css.scss"
 
-    </script> -->
     <style>
+        @media only screen and (min-width: 961px) {
+  /* regular-css-rules */
+        }
+
         #newbe {
             position: relative;
             width:300px;
             height: 80px;
             background-color: darkgoldenrod;
         }
+
         .container {
             display: grid;
-            grid-template-columns: 150px 150px 150px;
-            grid-template-rows: 150px 150px;
+            font-size: calc(1.5rem + 3vw);
+            /* width: calc(450px + 2rem); */
+            /* grid-template-areas:
+            "header header header"
+            "content-1 content-1 sidebar"
+            "content-2 content-3 sidebar"
+            "footer footer footer"; */
+            /* grid-template-columns: 150px 150px 150px; */
+            grid-template-columns: repeat(3, 150px);
+            grid-template-rows: repeat(2,150px);
             grid-gap: 1rem;
         }
         .item {
             border: 0.25rem solid #FF500A;
+
+            font-size: calc(1.5rem + 3vw);
             border-radius: 0.5rem;
             display: flex;
             justify-content:center;
             align-items: center;
-        }   
+        }    
     </style>
     
     
