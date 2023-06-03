@@ -14,7 +14,22 @@ y_prediction = knn_model.predict(x_test)
 y_prediction
 
 from sklearn.naive_bayes import GaussianNB
+
+
 nb_model = GaussianNB()
 nb_model  = nb_model.fit(x,y)
 
 print(classification_report(y_train, y_predict))
+
+
+#logistic regression
+
+from sklearn.linear_model import LogisticRegression
+
+
+lg_regression_model = LogisticRegression()
+lg_model  = lg_regression_model.fit(x,y) 
+y_prediction = lg_model.predict(x_test)
+print(classification_report(y_prediction, y_true))
+
+
