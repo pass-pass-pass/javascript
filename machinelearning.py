@@ -14,3 +14,7 @@ y_prediction = knn_model.predict(x_test)
 y_prediction
 
 from sklearn.naive_bayes import GaussianNB
+nb_model = GaussianNB()
+nb_model  = nb_model.fit(x,y)
+
+print(classification_report(y_train, y_predict))
