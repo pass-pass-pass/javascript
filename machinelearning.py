@@ -3,6 +3,7 @@ import pandas as pd
 
 
 
+
 # k nearest method
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report
@@ -31,5 +32,9 @@ lg_regression_model = LogisticRegression()
 lg_model  = lg_regression_model.fit(x,y) 
 y_prediction = lg_model.predict(x_test)
 print(classification_report(y_prediction, y_true))
+
+
+
+#support vector machine
 
 
