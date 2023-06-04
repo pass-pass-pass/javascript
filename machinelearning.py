@@ -38,3 +38,6 @@ print(classification_report(y_prediction, y_true))
 #support vector machine
 
 
+from sklearn.svm import SVC
+svm_model = SVC()
+svm_model = svm_model.fit(x_train,y_train)
