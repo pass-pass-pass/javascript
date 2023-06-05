@@ -8,7 +8,7 @@ import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report
 
-
+import matplotlib.pyplot as plt
 # knn_model = KNeighborsClassifier(n_neighbors=1)
 # knn_model.fit(x_train, y_train)
 # y_prediction = knn_model.predict(x_test)
@@ -52,4 +52,13 @@ nn_model = tf.keras.Sequential([
 ])
 
 
-nn_model.compile(optimizer= tf.keras.optimizers.Adam)
+nn_model.compile(optimizer= tf.keras.optimizers.Adam(0.001), loss = 'binary_crossentrophy', metrics = ['accuracy'])
+
+def plot_loss(history):
+    plt.plot(history.history['loss'], lable = 'loss')
+    plt.plot(history.history['val_loss'], label = 'val_loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('binary crossentrophy')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
