@@ -95,10 +95,12 @@ for node in [16,32, 64]:
             for batch_size in [32,64,128]:
                 print(f"{node} nodes, {dropout} prob , {learning_rate} learning_rate, {batch_size} batch_size")
                 model, history = train_model(x_train,y_train, node,dropout,learning_rate,batch_size, epoch)
-                val_loss = model.evaluate(x_valid, y_valid)
+                val_loss = model.evaluate(x_valid, y_valid)[0]
                 if val_loss < least_val_loss:
                     least_val_loss = val_loss
                     least_model = model
                 plot_loss(history)
                 plot_history(history)
 
+y_predict = least_model.predict(x_test)
+y_predict = (y_predict > .5).astype(int)
