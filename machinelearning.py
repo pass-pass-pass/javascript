@@ -103,4 +103,6 @@ for node in [16,32, 64]:
                 plot_history(history)
 
 y_predict = least_model.predict(x_test)
-y_predict = (y_predict > .5).astype(int)
+y_predict = (y_predict > .5).astype(int).reshape(-1,)
+print(classification_report(y_test, y_predict))
+
