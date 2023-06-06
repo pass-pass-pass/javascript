@@ -9,41 +9,44 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report
 
 import matplotlib.pyplot as plt
-# knn_model = KNeighborsClassifier(n_neighbors=1)
-# knn_model.fit(x_train, y_train)
-# y_prediction = knn_model.predict(x_test)
-# y_prediction
+knn_model = KNeighborsClassifier(n_neighbors=1)
+knn_model.fit(x_train, y_train)
+y_prediction = knn_model.predict(x_test)
+y_prediction
 
-# from sklearn.naive_bayes import GaussianNB
-
-
-# nb_model = GaussianNB()
-# nb_model  = nb_model.fit(x,y)
-
-# print(classification_report(y_train, y_predict))
+from sklearn.naive_bayes import GaussianNB
 
 
-# #logistic regression
+nb_model = GaussianNB()
+nb_model  = nb_model.fit(x,y)
 
-# from sklearn.linear_model import LogisticRegression
-
-
-# lg_regression_model = LogisticRegression()
-# lg_model  = lg_regression_model.fit(x,y) 
-# y_prediction = lg_model.predict(x_test)
-# print(classification_report(y_prediction, y_true))
+print(classification_report(y_train, y_predict))
 
 
+#logistic regression
 
-# #support vector machine
+from sklearn.linear_model import LogisticRegression
 
 
-# from sklearn.svm import SVC
-# svm_model = SVC()
-# svm_model = svm_model.fit(x_train,y_train)
-# y_predict = svm_model.predict(x_test)
-# print(classification_report(y_true, y_predict))
+lg_regression_model = LogisticRegression()
+lg_model  = lg_regression_model.fit(x,y) 
+y_prediction = lg_model.predict(x_test)
+print(classification_report(y_prediction, y_true))
 
+
+
+#support vector machine
+
+
+from sklearn.svm import SVC
+svm_model = SVC()
+svm_model = svm_model.fit(x_train,y_train)
+y_predict = svm_model.predict(x_test)
+print(classification_report(y_true, y_predict))
+
+
+
+train, valid, test = np.split(df.sample(frac = 1), [int(.6* len(df), int(.8 * len(df)))])
 def plot_loss(history):
     plt.plot(history.history['loss'], lable = 'loss')
     plt.plot(history.history['val_loss'], label = 'val_loss')
