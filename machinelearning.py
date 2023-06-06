@@ -44,16 +44,6 @@ import matplotlib.pyplot as plt
 # y_predict = svm_model.predict(x_test)
 # print(classification_report(y_true, y_predict))
 
-import tensorflow as tf
-nn_model = tf.keras.Sequential([
-    tf.keras.layers.Dense(32, activation='relu', input_shape = (10,) ,),
-    tf.keras.layers.Dense(32, activation='relu'),
-    tf.keras.layers.Dense(1,activation='sigmoid')
-])
-
-
-nn_model.compile(optimizer= tf.keras.optimizers.Adam(0.001), loss = 'binary_crossentrophy', metrics = ['accuracy'])
-
 def plot_loss(history):
     plt.plot(history.history['loss'], lable = 'loss')
     plt.plot(history.history['val_loss'], label = 'val_loss')
@@ -62,3 +52,41 @@ def plot_loss(history):
     plt.legend()
     plt.grid(True)
     plt.show()
+
+import tensorflow as tf
+
+def plot_history(history):
+    fig, (ax1,ax2)= plt.subplot(1,2)
+    ax1.plot(history.history['loss'], label = 'loss')
+    ax1.plot(history.history['val_loss'], label = 'val_loss')
+    ax1.set_xlabel('epoch')
+    ax1.set_ylabel('binary crossentropy')
+    ax1.grid(True)
+    ax2.plot(history.history['accuracy'], label = 'accuracy')
+    ax2.plot(history.history['val_accuracy'], label= 'val_accuracy')
+    ax2.set_xlabel('epoach')
+    ax2.set_ylabel('accuracy')
+    ax2.grid(True)
+    plt.show()
+
+
+def train_model(x_train,y_train, num_nodes,dropout_prob,learning_rate,batch_size, epochs ):
+    nn_model = tf.keras.Sequential([
+        tf.keras.layers.Dense(num_nodes, activation='relu', input_shape = (10,) ,),
+        tf.keras.layers.Dropout(dropout_prob),
+        tf.keras.layers.Dense(num_nodes, activation='relu'),
+        tf.keras.layers.Dropout(dropout_prob ),
+        tf.keras.layers.Dense(1,activation='sigmoid')
+    ])
+    nn_model.compile(optimizer= tf.keras.optimizers.Adam(learning_rate), loss = 'binary_crossentrophy', metrics = ['accuracy'])
+    history = nn_model.fit(x_train, y_train, batch_size, epochs, validation_split= 0.2)
+    plot_loss(history)
+    return nn_model, history
+epoch = 100
+for node in [16,32, 64]:
+    for dropout in [0,0.02]:
+        for learning_rate in [.005, .001, .01, .1]:
+            for batch_size in [32,64,128]:
+                model, history = train_model(x_train,y_train, node,dropout,learning_rate,batch_size, epoch)
+                plot_loss(history)
+
