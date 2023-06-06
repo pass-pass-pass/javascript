@@ -83,12 +83,19 @@ def train_model(x_train,y_train, num_nodes,dropout_prob,learning_rate,batch_size
     plot_loss(history)
     return nn_model, history
 epoch = 100
+least_val_loss = float('inf')
+least_model = None
+
 for node in [16,32, 64]:
     for dropout in [0,0.02]:
         for learning_rate in [.005, .001, .01, .1]:
             for batch_size in [32,64,128]:
                 print(f"{node} nodes, {dropout} prob , {learning_rate} learning_rate, {batch_size} batch_size")
                 model, history = train_model(x_train,y_train, node,dropout,learning_rate,batch_size, epoch)
+                val_loss = model.evaluate(x_valid, y_valid)
+                if val_loss < least_val_loss:
+                    least_val_loss = val_loss
+                    least_model = model
                 plot_loss(history)
                 plot_history(history)
 
