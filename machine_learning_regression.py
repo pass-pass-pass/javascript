@@ -55,4 +55,16 @@ def get_X_y(df, ylabel, xlabel):
             x = df[xlabel[0]].values.reshape(-1, 1)
         else :
             x = df[xlabel].values
-_ , xtrain, ytrain  = 
+
+
+    y = df[ylabels].values.reshape(-1, 1)
+    data = np.hstack((x,y))
+    return data, x, y
+_ , xtrain_, ytrain  = get_X_y(train, 'bike_count',['temp'])
+_ , xval, yval  = get_X_y(vali, 'bike_count',['temp'])
+_ , xtest, ytest  = get_X_y(test, 'bike_count',['temp'])
+
+
+regressor = LinearRegression()
+regressor.fit(xtrain_, ytrain)
+print(regressor.coef_ , regressor.intercept_)
