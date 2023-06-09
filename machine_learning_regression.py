@@ -68,3 +68,5 @@ _ , xtest, ytest  = get_X_y(test, 'bike_count',['temp'])
 regressor = LinearRegression()
 regressor.fit(xtrain_, ytrain)
 print(regressor.coef_ , regressor.intercept_)
+# to see the association
+regressor.score(xtest, ytest)   
