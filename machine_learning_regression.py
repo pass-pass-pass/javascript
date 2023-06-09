@@ -16,3 +16,10 @@ import matplotlib.pyplot as plt
 # 2  mean squared error       mean of squarred residuals
 # 3 root mean square error      root of mean square error
 # 4 coefficients of determination       R2 = 1 -  RSS/TSS   sum of squared residuals  RSS, total sum of  squared mean residuals  TSS
+
+from imblearn.over_sampling import RandomOverSampler
+from sklearn.preprocessing import StandardScaler
+import seaborn as sbs
+import tensorflow as tf  
+import copy
+from sklearn.linear_model import LinearRegression
