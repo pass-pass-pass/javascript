@@ -29,3 +29,6 @@ from sklearn.linear_model import LinearRegression
 
 df = pd.read_csv(" sample.csv")
 dataset_cols = ['bike_count', 'hours', 'temp', 'humidity','wind']
+df.drop(['data', 'holidays'], axis = 1)
+df.columns = dataset_cols
+df['functional'] = (df['functional'] == 'yes').astype(int)
