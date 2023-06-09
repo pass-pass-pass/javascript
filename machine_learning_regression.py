@@ -23,3 +23,9 @@ import seaborn as sbs
 import tensorflow as tf  
 import copy
 from sklearn.linear_model import LinearRegression
+
+
+
+
+df = pd.read_csv(" sample.csv")
+dataset_cols = ['bike_count', 'hours', 'temp', 'humidity','wind']
