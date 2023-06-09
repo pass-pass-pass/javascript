@@ -41,3 +41,4 @@ for i in df.comlumns[1:]:
     plt.xlabel('')
     plt.ylabel('')
     plt.show()
+df.drop(['wind', ' visibility', 'functional'], axis = 1)
