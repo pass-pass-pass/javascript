@@ -34,3 +34,10 @@ df.columns = dataset_cols
 df['functional'] = (df['functional'] == 'yes').astype(int)
 df = df[ df['hours'] == 12]
 df.drop(['hours'] , axis = 1)
+
+for i in df.comlumns[1:]:
+    plt.scatter(df['labeel'], df['bike_counts'])
+    plt.title('')
+    plt.xlabel('')
+    plt.ylabel('')
+    plt.show()
