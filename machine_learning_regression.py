@@ -42,3 +42,17 @@ for i in df.comlumns[1:]:
     plt.ylabel('')
     plt.show()
 df.drop(['wind', ' visibility', 'functional'], axis = 1)
+
+
+# train validation test
+train, vali, test = np.split(df.sample(frac = 1), [int(.6* len(df)) , int(.8* len(df))  ])
+def get_X_y(df, ylabel, xlabel):
+    df1 = df.deepcopy(df)
+    if not xlabel :
+        x = df[[c for c in df.columns if c != ylabel]].values
+    else:
+        if len(xlabel) == 1 :
+            x = df[xlabel[0]].values.reshape(-1, 1)
+        else :
+            x = df[xlabel].values
+_ , xtrain, ytrain  = 
