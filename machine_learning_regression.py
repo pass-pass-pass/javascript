@@ -32,3 +32,5 @@ dataset_cols = ['bike_count', 'hours', 'temp', 'humidity','wind']
 df.drop(['data', 'holidays'], axis = 1)
 df.columns = dataset_cols
 df['functional'] = (df['functional'] == 'yes').astype(int)
+df = df[ df['hours'] == 12]
+df.drop(['hours'] , axis = 1)
