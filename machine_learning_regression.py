@@ -78,3 +78,11 @@ plt.title('no')
 plt.xlabel('')
 plt.ylabel('')
 plt.show()
+
+#  multiple linear regression
+_ , xtrain_all, ytrain_all  = get_X_y(train, 'bike_count',df.columns[1:])
+_ , xval_all, yval_all  = get_X_y(vali, 'bike_count',df.columns[1:])
+_ , xtest_all, ytest_all  = get_X_y(test, 'bike_count',df.columns[1:])
+regressor_all = LinearRegression()
+regressor_all.fit(xtrain_all, ytrain_all)
+regressor_all.score(xtest_all, ytest_all)
