@@ -110,3 +110,6 @@ plt.title('no')
 plt.xlabel('')
 plt.ylabel('')
 plt.show()
+
+
+
