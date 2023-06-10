@@ -92,7 +92,7 @@ least_model = None
 for node in [16,32, 64]:
     for dropout in [0,0.02]:
         for learning_rate in [.005, .001, .01, .1]:
-            for batch_size in [32,64,128]:
+            for batch_size in [32,64,128    ]:
                 print(f"{node} nodes, {dropout} prob , {learning_rate} learning_rate, {batch_size} batch_size")
                 model, history = train_model(x_train,y_train, node,dropout,learning_rate,batch_size, epoch)
                 val_loss = model.evaluate(x_valid, y_valid)[0]

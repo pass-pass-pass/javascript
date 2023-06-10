@@ -87,8 +87,31 @@ regressor_all = LinearRegression()
 regressor_all.fit(xtrain_all, ytrain_all)
 regressor_all.score(xtest_all, ytest_all)
 
+ypredict = regressor_all.predict(xtest_all)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # regression with neural net
-temp_normalizer = tf.keras.layers.Normalization(input_shape(1, ) , axis = None)
+temp_normalizer = tf.keras.layers.Normalization(input_shape = (6, ) , axis = None)
 temp_normalizer.adpat(xtrain_.resahpe(-1))
 temp_nn_model = tf.keras.Sequential([
     temp_normalizer,
@@ -111,5 +134,57 @@ plt.xlabel('')
 plt.ylabel('')
 plt.show()
 
+def plot_loss(history):
+    plt.plot(history.history['loss'], lable = 'loss')
+    plt.plot(history.history['val_loss'], label = 'val_loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('binary crossentrophy')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
 
+
+nn_model = tf.keras.Sequential([
+    temp_normalizer,
+    tf.keras.layers.Dense(32, activation='relu'),
+    tf.keras.layers.Dense(32, activation='relu'),
+    tf.keras.layers.Dense(32, activation='relu'),
+    tf.keras.layers.Dense(1),
+
+]) 
+
+nn_model.copmile(optimizer = tf.keras.optimizers.Adam(learning_rate=.01) , loss = 'mean_squared_error')
+
+history = nn_model.fit(xtrain_, ytrain  , validation_data = (xval, yval ) , verbose = 0, epochs = 100 , )
+plot_loss(history)
+
+plt.scatter(xtrain_, ytrain, color = 'blue', label = 'sampel1')
+x = tf.linspace(-20, 40, 100)
+plt.plot(x, temp_nn_model.predicct(x), label  = 'fit', color = 'red', linewidth = 3, label  = 'sample 2 ')
+plt.legend()
+plt.title('no')
+plt.xlabel('')
+plt.ylabel('')
+plt.show()
+
+history = nn_model.fit(xtrain_all, ytrain_all,verbose = 0 ,validation_data = (xval, yval), epochs = 1000 )
+
+
+
+
+#  now copmare the two models , linera model and nureal network
+nn_predict = nn_model.predict(xtest_all)
+
+re_predict = regressor.predict(xtest_all)
+def MSE(predict, real):
+
+    return (np.square(predict - real)).mean()
+
+print(MSE( nn_predict,ytest_all) )
+print(MSE(re_predict , ytest_all ))
+
+plt.axes(aspect =  'equal')
+plt.scatter()
+plt.xlim= [1,2000  ] 
+plt.plot([1,2999 ] , [1,2999 ]  , c = 'red' )
