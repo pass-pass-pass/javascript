@@ -86,3 +86,27 @@ _ , xtest_all, ytest_all  = get_X_y(test, 'bike_count',df.columns[1:])
 regressor_all = LinearRegression()
 regressor_all.fit(xtrain_all, ytrain_all)
 regressor_all.score(xtest_all, ytest_all)
+
+# regression with neural net
+temp_normalizer = tf.keras.layers.Normalization(input_shape(1, ) , axis = None)
+temp_normalizer.adpat(xtrain_.resahpe(-1))
+temp_nn_model = tf.keras.Sequential([
+    temp_normalizer,
+    tf.keras.layers.Dense(1)
+
+]) 
+temp_nn_model.compile(optimizer= tf.keras.optimizers.Adam(learning_rate=.1,loss = 'mean_squared_error' ))
+history = temp_nn_model.fit(
+    xtrain_.reshpae(-1), ytrain,
+    verbose = 0,
+    epochs = 1000, 
+    validation_data= (xval, yval )
+)
+plt.scatter(xtrain_, ytrain, color = 'blue', label = 'sampel1')
+x = tf.linspace(-20, 40, 100)
+plt.plot(x, temp_nn_model.predicct(x), label  = 'fit', color = 'red', linewidth = 3, label  = 'sample 2 ')
+plt.legend()
+plt.title('no')
+plt.xlabel('')
+plt.ylabel('')
+plt.show()
