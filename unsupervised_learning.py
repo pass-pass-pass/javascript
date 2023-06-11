@@ -24,5 +24,6 @@ y = 'asymmetry '
 X = df[x,y].values
 kmeans = KMeans(n_clusters=3).fit(X)
 clusters = kmeans.labels_
-df[]
+df['class'].values
 
+cluster_df = pd.DataFrame(np.hstack((X, clusters.reshape(-1, 1))), columns= [x,y , 'class'])
