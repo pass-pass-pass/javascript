@@ -27,3 +27,5 @@ clusters = kmeans.labels_
 df['class'].values
 
 cluster_df = pd.DataFrame(np.hstack((X, clusters.reshape(-1, 1))), columns= [x,y , 'class'])
+
+sns.scatterplot(x, y , hue  = 'class', data = cluster_df)
