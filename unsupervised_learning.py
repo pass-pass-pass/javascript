@@ -42,3 +42,5 @@ from  sklearn.decomposition import PCA
 pca = PCA(n_components= 2)
 transformed_x = pca.fit_transform(X)
 print(transformed_x[:5])
+plt.scatter(transformed_x[:, 0 ] ,transformed_x[:, 1 ])
+plt.show()
