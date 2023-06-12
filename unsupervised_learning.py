@@ -34,8 +34,10 @@ kmeans = KMeans(n_clusters=3).fit(X)
 cluster_df = pd.DataFrame(np.hstack((X, clusters.reshape(-1, 1))), columns= df.columns)
 
 
+#  PCA
 
 
+from  sklearn.decomposition import PCA
 
-
-
+pca = PCA(n_components= 2)
+transformed_x = pca.fit_transform(X)
