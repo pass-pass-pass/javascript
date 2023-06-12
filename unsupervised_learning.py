@@ -29,3 +29,8 @@ df['class'].values
 cluster_df = pd.DataFrame(np.hstack((X, clusters.reshape(-1, 1))), columns= [x,y , 'class'])
 
 sns.scatterplot(x, y , hue  = 'class', data = cluster_df)
+X = df[cols[:-1]].values    
+kmeans = KMeans(n_clusters=3).fit(X)
+cluster_df = pd.DataFrame(np.hstack((X, clusters.reshape(-1, 1))), columns= df.columns)
+
+
