@@ -50,4 +50,5 @@ true_pca_df = pd.DataFrame(np.hstack((transformed_x, df['class'].values.reshape(
 sns.scatterplot(x = 'pca1', y =  'pca2', data = kmeans_pca_df , hue = 'class')
 sns.scatterplot(x = x, y = y, data = true_pca_df, hue = 'class')
  
- 
+
+
