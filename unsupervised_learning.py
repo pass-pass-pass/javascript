@@ -44,3 +44,9 @@ transformed_x = pca.fit_transform(X)
 print(transformed_x[:5])
 plt.scatter(transformed_x[:, 0 ] ,transformed_x[:, 1 ])
 plt.show()
+
+kmeans_pca_df = pd.DataFrame(np.hstack((transformed_x, kmeans.labels_.reshape(-1, 1)    )) , columns= ['pca1' , 'pca2', 'class'])
+true_pca_df = pd.DataFrame(np.hstack((transformed_x, df['class'].values.reshape(-1, 1)    )) , columns= ['pca1' , 'pca2', 'class'])
+sns.scatterplot(x = 'pca1', y =  'pca2', data = kmeans_pca_df , hue = 'class')
+sns.scatterplot(x = x, y = y, data = true_pca_df, hue = 'class')
+ 
