@@ -7,3 +7,4 @@ cv.imshow('cat', img)
 cv.waitKey(0)
 
 print(3)
+
