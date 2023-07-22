@@ -48,7 +48,7 @@
 </head>
 
 <body>
-    <button id ='newbe' >
+    <button id ='newbe' onclick="" >
 
         make it fly
 
@@ -60,9 +60,14 @@
 
     <script type = "text/javascript">
         var div = document.getElementById('newbe');
+        function showmessage() {
+            alert(' no message ');
+        }
+        setTimeout(showmessage,   1000000);
         div.onclick = function mouseClick(event) {
             alert("why you distract!");
             console.log('why you distract!', event.target);
+
         }
 
         function animateIt(elementId, speed) {
@@ -88,7 +93,13 @@
 
 
     <div class="container">
-        <div class="item item1">1</div>
+        <div class="item item1">1
+            <button onclick="alert('you clicked on this thing')">
+
+            
+            </button>
+            
+        </div>
         <div class="item item2">2</div>
         <div class="item item3">3</div>
         <div class="item item4">4</div>
