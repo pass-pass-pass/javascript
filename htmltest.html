@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css.CSS", type="'text/css" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.CSS", type="'text/css" />
     <title>Document</title>
 
 
     <style>
+        .yes {
+
+            position:flex;
+            margin-top: 100px;
+        }
+
+        .no {
+            margin-left: -100px;
+            position: inline;
+
+        }
         
         #newbe {
             position: relative;
@@ -29,6 +40,10 @@
             grid-template-columns: repeat(3, 150px);
             grid-template-rows: repeat(2,150px);
             grid-gap: 1rem;
+            box-shadow: 3cm;
+            font-weight: 100;
+            /* text-align: center; */
+            background-color:papayawhip;
         }
 
         .item {
@@ -48,13 +63,17 @@
             justify-content: flex-start;
             align-items:flex-end;
             display: inline-flex;
+            box-shadow: 1cm;
+            margin:0 auto;
         }
         .divbutton{
             align-items: center;
             display: inline-flex;
             /* gap: 60px; */
-        
+            border-bottom: 100ch;
             justify-content: flex-end;
+
+
         }
     </style>
 
@@ -100,6 +119,7 @@
             }
             }, 30);
         }
+        
         animateIt('newbe',5)
     </script>
 
@@ -114,19 +134,12 @@
         <div class="item item6">6</div>
         <div class="divbutton">
 
-            <button onclick="alert('you clicked on this thing')" class="button">
-            <a href=""></a>
             
-            </button>
-            <button onclick="mouseClick(event)" class = 'button'>
-                <script type = 'text/javascript'>
-                    function mouseClick(event) { 
-                        alert('message');
-                    }
-                </script>
 
-            </button>
         </div>
+
+        <div class="no">no       </div>
+        <div class="yes">yes</div>
    </div>
 </body>
 </html>
